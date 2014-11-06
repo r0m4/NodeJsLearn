@@ -35,8 +35,8 @@ http.createServer(function (req, res) {
             });
     }
 
-    if (req.url === "/image.jpg") {
-           fs.readFile('image.jpg', function (err, content) {
+    if (req.url === "/image.png") {
+           fs.readFile('Dinka.png', function (err, content) {
                 if (err) {
                     res.statusCode = 500;
                     res.end = ("Server Error");
