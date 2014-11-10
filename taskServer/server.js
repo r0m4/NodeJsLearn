@@ -2,7 +2,7 @@ var http = require('http');
 var fs = require('fs');
 
 
-console.log("starting")
+console.log("starting");
 
 http.createServer(function (req, res) {
     
@@ -50,13 +50,12 @@ http.createServer(function (req, res) {
 
     } 
 
-    if (req.url === '/') {
-          
-          res.writeHead(200, {"Content-type":"text/plain; charset=utf-8"});
-          res.end("Hello World its meeeee");
+    if (req.url === '/') {          
+           res.writeHead(200, {"Content-type":"text/plain; charset=utf-8"});
+           res.end("Hello World its meeeee");
 
-      }
+    }
 
-      console.log("Received request: " + req.url);
+console.log("Received request: " + req.url);
 
 }).listen(3000, function () {console.log("listening on port 3000")});
