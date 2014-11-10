@@ -6,7 +6,7 @@ console.log("starting")
 
 http.createServer(function (req, res) {
     
-    if (req.url === "/text.txt") {
+    if (req.url === "/test") {
             fs.readFile('text.txt', 'utf8', function (err, content) {
                 if (err) {
                     res.statusCode = 500;
@@ -21,28 +21,28 @@ http.createServer(function (req, res) {
             });
     }
 
-    if (req.url === "/index.html") {
+    if (req.url === "/index") {
             fs.readFile('index.html', 'utf8', function (err, content) {
                 if (err) {
                     res.statusCode = 500;
                     res.end = ("Server Error");
                 
                 } else {
-                    res.setHeader("Content-Type", "text/html; charset=utf-8");
+                    res.setHeader("Content-Type", "text/plain; charset=utf-8");
                     console.log(content);
                     res.end(content);
                 }
             });
     }
 
-    if (req.url === "/image.png") {
+    if (req.url === "/picture") {
            fs.readFile('Dinka.png', function (err, content) {
                 if (err) {
                     res.statusCode = 500;
                     res.end = ("Server Error");
                 
                 } else {
-                    res.setHeader("Content-Type", "text/html; charset=utf-8");
+                    res.setHeader("Content-Type", "image/png; charset=utf-8");
                     console.log(content);
                     res.end(content);
                 }
