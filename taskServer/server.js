@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
                     res.end = ("Server Error");
                 
                 } else {
-                    res.setHeader("Content-Type", "text/html; charset=utf-8");
+                    res.setHeader("Content-Type", "text/plain; charset=utf-8");
                     console.log(content);
                     res.write("Такст : ");
                     res.end(content);
@@ -28,7 +28,7 @@ http.createServer(function (req, res) {
                     res.end = ("Server Error");
                 
                 } else {
-                    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+                    res.setHeader("Content-Type", "text/html; charset=utf-8");
                     console.log(content);
                     res.end(content);
                 }
@@ -42,7 +42,7 @@ http.createServer(function (req, res) {
                     res.end = ("Server Error");
                 
                 } else {
-                    res.setHeader("Content-Type", "image/png; charset=utf-8");
+                    res.setHeader("Content-Type", "image/png");
                     console.log(content);
                     res.end(content);
                 }
