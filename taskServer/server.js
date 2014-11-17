@@ -14,7 +14,7 @@ http.createServer(function (req, res) {
             } else {
                 res.setHeader("Content-Type", "text/plain; charset=utf-8");
                 console.log(content);
-                res.write("Такст : ");
+                res.write("Текст : ");
                 res.end(content);
             }
         });
