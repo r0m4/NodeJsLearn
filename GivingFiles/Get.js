@@ -5,18 +5,26 @@ var name;
 var options = {
     host: "localhost",
     port: 3000,
-    path: '/'
+    path: '/index'
 };
 
 var data = http.get(options, function(res) {
     console.log("Got response: " + res.statusCode);
+    var lastDig = (res.headers['content-type'].indexOf(';'));
     
-    if(options.path === "/picture") {
-        name = ".png"; 
+    
+    if(res.headers['content-type'] === "image/png") {
+        name = ".png";
+
     }
-    if (options.path === "/test") {
+    if(res.headers['content-type'].slice(0, lastDig) === "text/plain") {
         name = ".txt";
-    } else name = ".html";
+
+    }
+    if (res.headers['content-type'].slice(0, lastDig) === "text/html") {
+        name = ".html";
+
+    } else name = ".bin";
 
     res.on("data", function(chunk) {
         

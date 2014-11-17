@@ -1,5 +1,5 @@
 var fs = require('fs');
-fs.writeFile("test.bbb", "Hey there!", function(err) {
+fs.writeFile("blabla.bbb", "Hey there!", function(err) {
     if(err) {
         console.log(err);
     } else {
