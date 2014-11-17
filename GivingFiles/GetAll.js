@@ -2,7 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var url = require('url');
 var name;
-var options = 
+var hosts = 
     [
     {
         host: "localhost",
@@ -26,15 +26,15 @@ var options =
     
     
     
-    for (var i = 0; i < options.length; i++) {
+    for (var i = 0; i < hosts.length; i++) {
         //console.log(options[i]);
-        server(options[i]);    
+        server(hosts[i]);    
     }
 
     
 
     function server (path) {
-        
+        var options = path;
 
         var data = http.get(options, function(res) {
             console.log("Got response: " + res.statusCode);
@@ -55,11 +55,11 @@ var options =
 
             res.on("data", function(chunk) {
                 
-                fs.writeFile(path.slice(1)+name,""+chunk, function(err) {
+                fs.writeFile(options.path.slice(1)+name,""+chunk, function(err) {
                     if(err) {
                         console.log(err);
                     } else {
-                        console.log("The file "+path.slice(1)+" was saved!")
+                        console.log("The file "+options.path.slice(1)+" was saved!")
                     }
                 });
             })
