@@ -5,23 +5,23 @@ var name;
 var options = {
     host: "localhost",
     port: 3000,
-    path: '/index'
+    path: '/picture'
 };
 
 var data = http.get(options, function(res) {
     console.log("Got response: " + res.statusCode);
     var lastDig = (res.headers['content-type'].indexOf(';'));
     
-    
+
     if(res.headers['content-type'] === "image/png") {
         name = ".png";
 
     }
-    if(res.headers['content-type'].slice(0, lastDig) === "text/plain") {
+    else if(res.headers['content-type'].slice(0, lastDig) === "text/plain") {
         name = ".txt";
 
     }
-    if (res.headers['content-type'].slice(0, lastDig) === "text/html") {
+    else if (res.headers['content-type'].slice(0, lastDig) === "text/html") {
         name = ".html";
 
     } else name = ".bin";
