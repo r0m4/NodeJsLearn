@@ -28,15 +28,15 @@ var hosts =
     
     for (var i = 0; i < hosts.length; i++) {
         //console.log(options[i]);
-        server(hosts[i]);    
+        getUrl(hosts[i]);    
     }
 
     
 
-    function server (path) {
-        var options = path;
+    function getUrl (obj) {
+        var opt = obj;
 
-        var data = http.get(options, function(res) {
+        var data = http.get(opt, function(res) {
             console.log("Got response: " + res.statusCode);
             var lastDig = (res.headers['content-type'].indexOf(';'));
             
@@ -55,11 +55,11 @@ var hosts =
 
             res.on("data", function(chunk) {
                 
-                fs.writeFile(options.path.slice(1)+name,""+chunk, function(err) {
+                fs.writeFile(opt.path.slice(1)+name,""+chunk, function(err) {
                     if(err) {
                         console.log(err);
                     } else {
-                        console.log("The file "+options.path.slice(1)+" was saved!")
+                        console.log("The file "+opt.path.slice(1)+" was saved!")
                     }
                 });
             })
