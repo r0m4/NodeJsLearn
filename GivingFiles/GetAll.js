@@ -53,8 +53,10 @@ var hosts =
 
             } else name = ".bin";
 
+
             res.on("data", function(chunk) {
-                
+                ;
+
                 fs.writeFile(opt.path.slice(1)+name,""+chunk, function(err) {
                     if(err) {
                         console.log(err);
@@ -62,10 +64,18 @@ var hosts =
                         console.log("The file "+opt.path.slice(1)+" was saved!")
                     }
                 });
-            })
+            });
+            
         }).on('error', function(e) {
             console.log("Got error: "+e.message);
         });
+
+        data.on('data', function (chunk3) {
+            console.log('data:   '+chunk3)
+        })
+        data.on('end', function (chunk2) {
+                console.log("end:    " +chunk2)
+            })
 
     };
    
